@@ -1,0 +1,6 @@
+{
+  "name": "BloodLink",
+  "description": "A local blood donation app connecting nearby donors with those in urgent need of assistance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
