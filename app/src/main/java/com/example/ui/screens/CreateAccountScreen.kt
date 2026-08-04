@@ -48,7 +48,7 @@ fun CreateAccountScreen(
     val coroutineScope = rememberCoroutineScope()
 
     // Mode: 0 = Create Account, 1 = Sign In
-    var selectedMode by remember { mutableStateOf(0) }
+    var selectedMode by remember { mutableStateOf(viewModel.initialAuthMode) }
 
     var fullName by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }

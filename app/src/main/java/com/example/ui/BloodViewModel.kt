@@ -17,6 +17,7 @@ class BloodViewModel(application: Application) : AndroidViewModel(application) {
     private val sharedPrefs = application.getSharedPreferences("bloodlink_prefs", android.content.Context.MODE_PRIVATE)
     
     // UI state states
+    var initialAuthMode: Int = 0
     val userLocation = MutableStateFlow("Cox's Bazar")
     val selectedBloodTypeFilter = MutableStateFlow<String?>(null) // null means all
     val isNetworkAvailable = MutableStateFlow(true)

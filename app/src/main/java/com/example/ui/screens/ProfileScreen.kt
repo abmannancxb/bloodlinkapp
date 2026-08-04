@@ -134,17 +134,21 @@ fun ProfileScreen(
                         Spacer(modifier = Modifier.height(8.dp))
 
                         Text(
-                            text = "Connect with blood donors, request blood, and save lives. Please sign in with Google to build your donor profile.",
+                            text = "Connect with blood donors, request blood, and save lives. Please sign in or create an account to build your donor profile.",
                             color = Color.Gray,
                             fontSize = 14.sp,
                             textAlign = TextAlign.Center,
                             modifier = Modifier.padding(horizontal = 8.dp)
                         )
 
-                        Spacer(modifier = Modifier.height(32.dp))
+                        Spacer(modifier = Modifier.height(24.dp))
 
+                        // Sign In with Email & Password
                         Button(
-                            onClick = onNavigateToCreateAccount,
+                            onClick = {
+                                viewModel.initialAuthMode = 1
+                                onNavigateToCreateAccount()
+                            },
                             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFD32F2F)),
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -158,13 +162,13 @@ fun ProfileScreen(
                             ) {
                                 Icon(
                                     imageVector = Icons.Default.Person,
-                                    contentDescription = "Create Account",
+                                    contentDescription = "Sign In",
                                     tint = Color.White,
                                     modifier = Modifier.size(20.dp)
                                 )
                                 Spacer(modifier = Modifier.width(8.dp))
                                 Text(
-                                    text = "Create New Account / নতুন অ্যাকাউন্ট তৈরি করুন",
+                                    text = "Sign In / লগইন করুন",
                                     color = Color.White,
                                     fontSize = 14.sp,
                                     fontWeight = FontWeight.Bold
@@ -173,6 +177,63 @@ fun ProfileScreen(
                         }
 
                         Spacer(modifier = Modifier.height(12.dp))
+
+                        // Create New Account
+                        OutlinedButton(
+                            onClick = {
+                                viewModel.initialAuthMode = 0
+                                onNavigateToCreateAccount()
+                            },
+                            colors = ButtonDefaults.outlinedButtonColors(contentColor = Color(0xFFD32F2F)),
+                            modifier = Modifier.fillMaxWidth(),
+                            border = BorderStroke(1.5.dp, Color(0xFFD32F2F)),
+                            shape = RoundedCornerShape(12.dp),
+                            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp)
+                        ) {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.Center
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Person,
+                                    contentDescription = "Create Account",
+                                    tint = Color(0xFFD32F2F),
+                                    modifier = Modifier.size(20.dp)
+                                )
+                                Spacer(modifier = Modifier.width(8.dp))
+                                Text(
+                                    text = "Create New Account / নতুন অ্যাকাউন্ট তৈরি করুন",
+                                    color = Color(0xFFD32F2F),
+                                    fontSize = 14.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            }
+                        }
+
+                        Spacer(modifier = Modifier.height(16.dp))
+
+                        // Divider
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            HorizontalDivider(
+                                modifier = Modifier.weight(1f),
+                                color = Color(0xFFE0E0E0)
+                            )
+                            Text(
+                                text = "  OR / অথবা  ",
+                                fontSize = 12.sp,
+                                color = Color.Gray,
+                                fontWeight = FontWeight.Medium
+                            )
+                            HorizontalDivider(
+                                modifier = Modifier.weight(1f),
+                                color = Color(0xFFE0E0E0)
+                            )
+                        }
+
+                        Spacer(modifier = Modifier.height(16.dp))
 
                         Button(
                             onClick = {
