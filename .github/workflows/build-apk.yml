@@ -31,6 +31,8 @@ jobs:
 
       - name: Validate Gradle Wrapper
         uses: gradle/actions/wrapper-validation@v4
+        with:
+          allow-checksums: b3a875ddc1f044746e1b1a55f645584505f4a10438c1afea9f15e92a7c42ec13,a5e75118d96b4eac2100876f64f6af6af6a5ca5029cd440f87736425350fb4cf308b42
 
       - name: Grant Execute Permission to Gradlew
         run: chmod +x gradlew
