@@ -22,6 +22,13 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Debug Gradle Wrapper File
+        run: |
+          echo "=== Gradle Wrapper JAR Info ==="
+          ls -la gradle/wrapper/gradle-wrapper.jar
+          sha256sum gradle/wrapper/gradle-wrapper.jar
+          file gradle/wrapper/gradle-wrapper.jar || true
+
       - name: Validate Gradle Wrapper
         uses: gradle/actions/wrapper-validation@v4
 
